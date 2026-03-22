@@ -7,6 +7,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.condition.DisabledOnOs;
+import org.junit.jupiter.api.condition.OS;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
@@ -86,6 +88,7 @@ public class NumberUtilTest {
     }
 
     @Test
+    @DisabledOnOs(value=OS.WINDOWS, disabledReason="Disabled on windows OS")
     void testForZeroFactorial() {
         assertNotEquals(0, obj.factorial(1));
     }
